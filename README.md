@@ -1,141 +1,103 @@
-#🎓 Proyecto de Migración de Base de Datos EDUCA a Business Central##🎯 Objetivo del ProyectoEl objetivo principal de este proyecto es la **migración de la Base de Datos (BD) existente EDUCA al software ERP Microsoft 365 Business Central**.
+# 🎓 Proyecto de Migración de Base de Datos EDUCA a Business Central
 
-El centro educativo "Gregorio Fernández" busca integrar sus diferentes áreas funcionales, optimizar la relación con los alumnos (clientes), y obtener una ventaja competitiva en el mercado mediante el uso de un ERP.
+## 🎯 Objetivo del Proyecto
+El objetivo principal de este proyecto es la **migración de la Base de Datos (BD) existente EDUCA al software ERP Microsoft 365 Business Central**.
 
-##🏫 Centro de Enseñanza* 
-**Nombre:** Centro de Enseñanza Concertada "Gregorio Fernández" 
+El centro educativo **Gregorio Fernández** busca integrar sus diferentes áreas funcionales, optimizar la relación con los alumnos (clientes) y obtener una ventaja competitiva en el mercado mediante el uso de un ERP.
 
+---
 
-* 
-**Módulo:** SGE 
+## 🏫 Centro de Enseñanza
 
+- **Nombre:** Centro de Enseñanza Concertada *Gregorio Fernández*
+- **Módulo:** SGE
+- **Curso:** 25-26
+- **Profesora:** Macarena Cuenca Carbajo
 
-* 
-**Curso:** 25-26 
+---
 
+## 🛠️ Diseño de la Base de Datos (BD) EDUCA
 
-* 
-**Profesora:** Macarena Cuenca Carbajo 
+La base de datos **EDUCA** almacena información clave del centro, incluyendo cursos, clases, estudiantes, matrículas, profesorado (claustro), departamentos y personal no docente.
 
+---
 
+## 📋 Tablas Principales
 
-##🛠️ Diseño de la Base de Datos (BD) EDUCALa BD `EDUCA` almacena información clave del centro, incluyendo cursos, clases, estudiantes, matrículas, profesorado (Claustro), departamentos, y personal no docente.
-
-###Tablas PrincipalesLa BD consta de las siguientes siete tablas:
+La BD consta de las siguientes **siete tablas**:
 
 | Tabla | Descripción | Clave Principal |
-| --- | --- | --- |
-| **CURSOS** | Información sobre los cursos impartidos (nombre, créditos, tarifa). | <br>`Código curso` 
+|------|-------------|----------------|
+| **CURSOS** | Información sobre los cursos impartidos (nombre, créditos, tarifa). | `Código curso` |
+| **DEPARTAMENTOS** | Información de las áreas departamentales y su ubicación. | `Código dept.` |
+| **CLASES** | Detalles de las secciones de los cursos (día, hora, ubicación). | `Código curso`, `Sección` |
+| **ESTUDIANTES** | Datos de los alumnos matriculados. | `Código estudiante` |
+| **MATRÍCULAS** | Registros de las inscripciones de alumnos en clases. | `Código curso`, `Sección`, `Código estudiante` |
+| **CLAUSTRO** | Información del profesorado (docentes). | `Código profesor` |
+| **PERSONAL** | Información del personal no docente. | `Código personal` |
 
- |
-| **DEPARTAMENTOS** | Información de las áreas departamentales y su ubicación. | <br>`Código dept.` 
+---
 
- |
-| **CLASES** | Detalles de las secciones de los cursos (día, hora, ubicación). | <br>`Código curso`, `Sección` 
+## 🔗 Relaciones Esenciales (Extracto del Diagrama E-R)
 
- |
-| **ESTUDIANTES** | Datos de los alumnos matriculados. | <br>`Código estudiante` 
+Las relaciones entre las tablas se definen de la siguiente manera:
 
- |
-| **MATRÍCULAS** | Registros de las inscripciones de alumnos en clases. | <br>`Código curso`, `Sección`, `Código estudiante` 
+- **CURSOS → DEPARTAMENTOS** (1:n)
+- **CURSOS → CLASES** (1:n)
+- **DEPARTAMENTOS → CLAUSTRO** (1:n)  
+  - Rol especial: **DIRECTOR** (1:1)
+- **ESTUDIANTES → CLAUSTRO** (0:n)  
+  - Rol especial: **TUTOR** (1:1)
+- **CLASES → MATRÍCULAS** (1:n)
+- **ESTUDIANTES → MATRÍCULAS** (1:n)
 
- |
-| **CLAUSTRO** | Información del profesorado (docentes). | <br>`Código profesor` 
+---
 
- |
-| **PERSONAL** | Información del personal no docente. | <br>`Código personal` 
+## 📝 Requisitos de Migración y Funcionalidades Adicionales
 
- |
+### 1. Campos Calculados y de Filtrado
 
-###🔗 Relaciones Esenciales (Extracto del Diagrama E-R)Las relaciones entre las tablas están definidas de la siguiente manera (las cardinalidades están indicadas en el diagrama adjunto):
+Durante la implementación en **Microsoft 365 Business Central**, se deberán incluir los siguientes campos calculados:
 
-* 
-**CURSOS** \rightarrow **DEPARTAMENTOS** (1:n) 
+#### 📌 CLAUSTRO
 
+- **Campo: `Num. ayud.` (Número de Ayudantes)**  
+  Muestra automáticamente el número de ayudantes asignados a cada profesor.  
+  > Nota: Un ayudante (cargo = *Ayudante* en la tabla `PERSONAL`) solo puede estar asignado a un único profesor.
 
-* 
-**CURSOS** \rightarrow **CLASES** (1:n) 
+  **Acción requerida:**  
+  - Establecer una relación entre `PERSONAL` (Ayudantes) y `CLAUSTRO` (Profesores).
 
+- **Número de Clases Impartidas**  
+  Permite conocer cuántas clases imparte cada profesor.
 
-* 
-**DEPARTAMENTOS** \rightarrow **CLAUSTRO** (1:n, con rol **DIRECTOR** 1:1) 
+  **Funcionalidad adicional:**  
+  - Filtrar por **día de la semana** para conocer el número de clases impartidas en un día concreto.
 
+  **Acción requerida:**  
+  - Modificar las tablas `CLAUSTRO` y `CLASES`.
 
-* 
-**ESTUDIANTES** \rightarrow **CLAUSTRO** (0:n, con rol **TUTOR** 1:1) 
+#### 📌 DEPARTAMENTOS
 
+- **Promedio de Tarifa de Laboratorio**  
+  Almacena el promedio de la **Tarifa** (tabla `CURSOS`) de los cursos asociados a cada departamento.
 
-* 
-**CLASES** \rightarrow **MATRÍCULAS** (1:n) 
+---
 
+### 2. Propiedades de Campos
 
-* 
-**ESTUDIANTES** \rightarrow **MATRÍCULAS** (1:n) 
+Al crear las nuevas tablas en Business Central, se deberán aplicar las siguientes **validaciones y propiedades**:
 
-
-
-##📝 Requisitos de Migración y Funcionalidades AdicionalesPara la implementación en Microsoft 365 Business Central, se deben considerar las siguientes modificaciones y campos calculados:
-
-1. Campos Calculados y de Filtrado 
-
-Se requiere modificar las tablas para mostrar información calculada automáticamente:
-
-* 
-**CLAUSTRO - Campo `Num. ayud.` (Número de Ayudantes):** Debe mostrar automáticamente el número de ayudantes que tiene asignado cada profesor. *Nota: Un ayudante, que tiene el `Cargo` de "Ayudante" en la tabla `PERSONAL`, solo está asignado a un único profesor*.
-
-
-* **Acción Requerida:** Establecer una relación entre `PERSONAL` (Ayudantes) y `CLAUSTRO` (Profesores).
-
-
-* 
-**CLAUSTRO - Número de Clases Impartidas:** Se debe conocer el número de clases que imparte cada profesor.
-
-
-* 
-**Funcionalidad Adicional:** Permitir **filtrar** esta información por el día de la semana para conocer el número de clases impartidas un día concreto.
-
-
-* 
-**Acción Requerida:** Modificar las tablas implicadas (`CLAUSTRO` y `CLASES`).
-
-
-
-
-* 
-**DEPARTAMENTOS - Promedio de Tarifa de Laboratorio:** Almacenar el promedio de la tarifa de laboratorio (`Tarifa` de la tabla `CURSOS`) por cada departamento, en función de los cursos asignados a dicho departamento.
-
-
-
-###2. Propiedades de CamposSe deben aplicar las siguientes validaciones y propiedades a los campos al crear las nuevas tablas:
-
-| Tabla | Campo | Propiedades/Restricciones |
-| --- | --- | --- |
-| **CURSOS** | `Código curso` | Letra mayúscula, Requerido 
-
- |
-|  | `Créditos` | Valor por defecto: 0 
-
- |
-|  | `Tarifa` | Decimales: 2 
-
- |
-| **DEPARTAMENTOS** | `Código dept.` | Letras mayúsculas, Requerido 
-
- |
-|  | `Despacho` | Valor por defecto: 0, Positivo 
-
- |
-| **ESTUDIANTES** | `Código estudiante` | Numérico, Requerido 
-
- |
-|  | `Sexo` | Valores permitidos: (blanco), H, M 
-
- |
-| **CLAUSTRO** | `Sueldo` | Decimales: 2, Valor positivo 
-
- |
-| **PERSONAL** | `Sueldo` | Decimales: 2, Valor positivo 
-
- |
+| Tabla | Campo | Propiedades / Restricciones |
+|------|-------|-----------------------------|
+| **CURSOS** | `Código curso` | Letras mayúsculas, requerido |
+|  | `Créditos` | Valor por defecto: 0 |
+|  | `Tarifa` | Decimales: 2 |
+| **DEPARTAMENTOS** | `Código dept.` | Letras mayúsculas, requerido |
+|  | `Despacho` | Valor por defecto: 0, valor positivo |
+| **ESTUDIANTES** | `Código estudiante` | Numérico, requerido |
+|  | `Sexo` | Valores permitidos: (blanco), H, M |
+| **CLAUSTRO** | `Sueldo` | Decimales: 2, valor positivo |
+| **PERSONAL** | `Sueldo` | Decimales: 2, valor positivo |
 
 ---
