@@ -14,10 +14,11 @@ table 50102 Clases
 
     keys
     {
-        key(pk; "Código curso")
+        key(pk; "Código curso", "Sección")
         {
             Clustered = true;
         }
+        key(dia; "Día") { }
     }
 
 }

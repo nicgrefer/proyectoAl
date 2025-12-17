@@ -19,6 +19,10 @@ table 50105 Clautro
         {
             Clustered = true;
         }
+        key(datosPersonales; Nombre, Dirección) { }
+        key(fechaContrato; "Fecha contrato") { }
+        key(sueldo; Sueldo) { }
+
     }
 
 }

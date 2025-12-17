@@ -16,6 +16,7 @@ table 50101 Departamentos
         {
             Clustered = true;
         }
+        key(despacho; Despacho) { }
     }
 
 }

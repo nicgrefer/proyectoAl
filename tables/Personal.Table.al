@@ -16,6 +16,9 @@ table 50106 Personal
         {
             Clustered = true;
         }
+        key(nombre; Nombre) { }
+        key(cargo; Cargo) { }
+
     }
 
 }

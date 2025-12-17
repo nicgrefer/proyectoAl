@@ -19,6 +19,9 @@ table 50103 Estudiantes
         {
             Clustered = true;
         }
+        key(nombe; Nombre) { }
+        key(direccion; Dirección) { }
+        key(telefono; Teléfono) { }
     }
 
 }

@@ -14,9 +14,11 @@ table 50104 "Matrículas"
 
     keys
     {
-        key(pk; "Codigo curso")
+        key(pk; "Codigo curso", "Sección", "Código estudiante")
         {
             Clustered = true;
         }
+        key(tiempo; "Fecha matricula", "Hora matricula") { }
+
     }
 }

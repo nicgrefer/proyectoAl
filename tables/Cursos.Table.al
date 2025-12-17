@@ -17,6 +17,10 @@ table 50100 Cursos
         {
             Clustered = true;
         }
+
+        key(nomCurs; "Nombre curso") { }
+        key(descCurso; "Desc. curso") { }
+
     }
 
 }
