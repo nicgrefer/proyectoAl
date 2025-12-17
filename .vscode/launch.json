@@ -6,7 +6,7 @@
             "request": "launch",
             "type": "al",
             "environmentType": "OnPrem",
-            "server": "http://bcserver",
+            "server": "http://localhost",
             "serverInstance": "BC230",
             "authentication": "Windows",
             "startupObjectId": 22,
