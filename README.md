@@ -12,8 +12,6 @@ El centro educativo **Gregorio Fernández** busca integrar sus diferentes áreas
 - **Nombre:** Centro de Enseñanza Concertada *Gregorio Fernández*
 - **Módulo:** SGE
 - **Curso:** 25-26
-- **Profesora:** Macarena Cuenca Carbajo
-
 ---
 
 ## 🛠️ Diseño de la Base de Datos (BD) EDUCA
