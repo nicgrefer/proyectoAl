@@ -26,7 +26,7 @@ table 50101 Departamentos
             trigger OnValidate()
             begin
                 if Rec.Despacho < 0 then
-                    Error('No muede ser un valor negativo');
+                    Error('No puede ser un valor negativo');
                 ;
             end;
         }
