@@ -2,11 +2,15 @@ enum 50100 SexoEnum
 {
     Extensible = true;
 
-    value(0; Masculino)
+    value(0; Blanco)
+    {
+        Caption = ' ';
+    }
+    value(1; Masculino)
     {
         Caption = 'Masculino';
     }
-    value(1; Femenino)
+    value(2; Femenino)
     {
         Caption = 'Femenino';
     }
