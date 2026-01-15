@@ -16,7 +16,7 @@ page 50102 "Lista de estudiantes"
                 field("Sexo"; Rec.Sexo) { }
                 field("Dirección"; Rec."Dirección") { }
                 field("Tlf"; Rec."Teléfono") { }
-                field("Fecha de  matriculación"; Rec."Fecha de nacimiento") { }
+                field("Fecha de nacimiento"; Rec."Fecha de nacimiento") { }
 
             }
         }
