@@ -1,22 +1,45 @@
 page 50106 "Lista de clases"
 {
-    PageType = Card;
+    PageType = List;
     ApplicationArea = All;
-    UsageCategory = Administration;
+    UsageCategory = Lists;
     SourceTable = Clases;
+    Caption = 'Lista de clases';
 
     layout
     {
         area(Content)
         {
-            group(GroupName)
+            repeater(GroupName)
             {
-                field("Cod. curso"; Rec."Código curso") { }
-                field("Sección"; Rec."Sección") { }
-                field("Día"; Rec."Día") { }
-                field("Hora"; Rec."Hora") { }
-                field("Edificio"; Rec."Edificio") { }
-                field("Despacho"; Rec."Despacho") { }
+                field("Código curso"; Rec."Código curso")
+                {
+                    ApplicationArea = All;
+                }
+                field("Sección"; Rec."Sección")
+                {
+                    ApplicationArea = All;
+                }
+                field("Día"; Rec."Día")
+                {
+                    ApplicationArea = All;
+                }
+                field("Hora"; Rec."Hora")
+                {
+                    ApplicationArea = All;
+                }
+                field("Edificio"; Rec."Edificio")
+                {
+                    ApplicationArea = All;
+                }
+                field("Despacho"; Rec."Despacho")
+                {
+                    ApplicationArea = All;
+                }
+                field("Código profesor"; Rec."Código profesor")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }

@@ -11,7 +11,7 @@ page 50101 "Lista de matriculas"
         {
             repeater(GroupName)
             {
-                field("Codico del curso"; Rec."Codigo curso") { }
+                field("Codigo del curso"; Rec."Código curso") { }
                 field("Sección"; Rec."Sección") { }
                 field("Codico del estudiante"; Rec."Código estudiante") { }
                 field("Fecha de matriculación"; Rec."Fecha matricula") { }

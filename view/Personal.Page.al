@@ -1,9 +1,10 @@
-page 50100 "Lista de personal"
+page 50108 "Lista de personal"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = Personal;
+    Caption = 'Lista de personal';
 
     layout
     {
@@ -11,10 +12,26 @@ page 50100 "Lista de personal"
         {
             repeater(GroupName)
             {
-                field("Codigo persoal"; Rec."Código personal") { }
-                field("Nombre persoal"; Rec."Nombre") { }
-                field("Cargo persoal"; Rec."Cargo") { }
-                field("Sueldo persoal"; Rec."Sueldo") { }
+                field("Código personal"; Rec."Código personal")
+                {
+                    ApplicationArea = All;
+                }
+                field("Nombre"; Rec.Nombre)
+                {
+                    ApplicationArea = All;
+                }
+                field("Cargo"; Rec.Cargo)
+                {
+                    ApplicationArea = All;
+                }
+                field("Sueldo"; Rec.Sueldo)
+                {
+                    ApplicationArea = All;
+                }
+                field("Código profesor"; Rec."Código profesor")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }
