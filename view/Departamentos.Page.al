@@ -15,22 +15,27 @@ page 50107 "Lista de departamentos"
                 field("Código dept."; Rec."Código dept.")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Código del departamento';
                 }
                 field("Edificio"; Rec."Edificio")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Edificio donde se ubica';
                 }
                 field("Despacho"; Rec."Despacho")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Número de despacho';
                 }
                 field("Código director"; Rec."Código director")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Código del profesor director';
                 }
                 field("Promedio tarifa"; Rec."Promedio tarifa")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Promedio de tarifa de laboratorio (calculado)';
                 }
             }
         }
@@ -44,9 +49,12 @@ page 50107 "Lista de departamentos"
             {
                 Caption = 'Calcular promedio tarifa';
                 ApplicationArea = All;
+                Image = Calculate;
+
                 trigger OnAction()
                 begin
                     Rec.CalcFields("Promedio tarifa");
+                    CurrPage.Update(false);
                 end;
             }
         }

@@ -15,38 +15,52 @@ page 50105 "Lista del claustro"
                 field("Código profesor"; Rec."Código profesor")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Código del profesor';
                 }
                 field("Nombre"; Rec.Nombre)
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Nombre completo';
                 }
                 field("Dirección"; Rec."Dirección")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Dirección completa';
                 }
                 field("Fecha contrato"; Rec."Fecha contrato")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Fecha de contratación';
                 }
-                field("Nº de ayudantes"; Rec."Num ayudantes")
+                field("Num ayudantes"; Rec."Num ayudantes")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Número de ayudantes (calculado)';
                 }
                 field("Sueldo"; Rec.Sueldo)
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Sueldo del profesor';
                 }
                 field("Código dept."; Rec."Código dept.")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Código del departamento';
                 }
                 field("Nº clases"; Rec."Nº clases")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Número de clases (calculado)';
                 }
             }
         }
-        // Removed circular reference part to avoid compile error
+        area(Factboxes)
+        {
+            systempart(Links; Links)
+            {
+                ApplicationArea = All;
+            }
+        }
     }
 
     actions
@@ -57,9 +71,12 @@ page 50105 "Lista del claustro"
             {
                 Caption = 'Calcular campos';
                 ApplicationArea = All;
+                Image = CalculateLines;
+
                 trigger OnAction()
                 begin
                     Rec.CalcFields("Num ayudantes", "Nº clases");
+                    CurrPage.Update(false);
                 end;
             }
         }

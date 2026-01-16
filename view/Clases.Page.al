@@ -15,30 +15,37 @@ page 50106 "Lista de clases"
                 field("Código curso"; Rec."Código curso")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Código del curso';
                 }
                 field("Sección"; Rec."Sección")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Número de sección';
                 }
                 field("Día"; Rec."Día")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Día de la semana';
                 }
                 field("Hora"; Rec."Hora")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Hora de la clase';
                 }
                 field("Edificio"; Rec."Edificio")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Edificio donde se imparte';
                 }
                 field("Despacho"; Rec."Despacho")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Número de despacho';
                 }
                 field("Código profesor"; Rec."Código profesor")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Código del profesor';
                 }
             }
         }

@@ -4,6 +4,7 @@ page 50102 "Lista de estudiantes"
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = Estudiantes;
+    Caption = 'Lista de estudiantes';
 
     layout
     {
@@ -11,13 +12,41 @@ page 50102 "Lista de estudiantes"
         {
             repeater(GroupName)
             {
-                field("Codigo"; Rec."Código estudiante") { }
-                field("Nombre"; Rec."Nombre") { }
-                field("Sexo"; Rec.Sexo) { }
-                field("Dirección"; Rec."Dirección") { }
-                field("Tlf"; Rec."Teléfono") { }
-                field("Fecha de nacimiento"; Rec."Fecha de nacimiento") { }
-
+                field("Código estudiante"; Rec."Código estudiante")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Código del estudiante';
+                }
+                field("Nombre"; Rec."Nombre")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Nombre completo';
+                }
+                field("Sexo"; Rec.Sexo)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Sexo del estudiante';
+                }
+                field("Dirección"; Rec."Dirección")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Dirección completa';
+                }
+                field("Teléfono"; Rec."Teléfono")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Número de teléfono';
+                }
+                field("Fecha de nacimiento"; Rec."Fecha de nacimiento")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Fecha de nacimiento';
+                }
+                field("Código tutor"; Rec."Código tutor")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Código del profesor tutor';
+                }
             }
         }
     }
