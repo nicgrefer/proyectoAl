@@ -39,12 +39,6 @@ table 50105 Claustro
             FieldClass = FlowField;
             CalcFormula = count(Personal where("Código profesor" = field("Código profesor"), Cargo = const('Ayudante')));
             Editable = false;
-
-            trigger OnValidate()
-            begin
-                if "Num ayudantes" < 0 then
-                    Error('El número de ayudantes no puede ser negativo.');
-            end;
         }
         field(6; Sueldo; Decimal)
         {
