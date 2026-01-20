@@ -1,7 +1,7 @@
 table 50102 Clases
 {
     DataClassification = ToBeClassified;
-    Caption = 'Clases';
+    DrillDownPageId = "Lista de clases";
 
     fields
     {
@@ -26,7 +26,7 @@ table 50102 Clases
                     Error('La sección no puede estar vacía.');
             end;
         }
-        field(3; "Día"; Text[10])
+        field(3; "Día"; Enum SemanaEnum)
         {
             Caption = 'Día de la semana';
         }

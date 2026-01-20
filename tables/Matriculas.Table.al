@@ -8,7 +8,7 @@ table 50104 "Matrículas"
         field(1; "Código curso"; Code[3])
         {
             Caption = 'Código curso';
-            TableRelation = Clases."Código curso";
+            TableRelation = Cursos."Código curso";
             trigger OnValidate()
             begin
                 if "Código curso" = '' then

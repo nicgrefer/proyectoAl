@@ -63,7 +63,7 @@ table 50105 Claustro
             CalcFormula = count(Clases where("Código profesor" = field("Código profesor"), "Día" = field("Filtro día")));
             Editable = false;
         }
-        field(9; "Filtro día"; Text[10])
+        field(9; "Filtro día"; Enum SemanaEnum)
         {
             Caption = 'Filtro día de la semana';
             FieldClass = FlowFilter;
