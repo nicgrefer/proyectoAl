@@ -36,18 +36,9 @@ La BD consta de las siguientes **siete tablas**:
 
 ---
 
-## 🔗 Relaciones Esenciales (Extracto del Diagrama E-R)
+## 🔗 Relaciones Esenciales 
 
-Las relaciones entre las tablas se definen de la siguiente manera:
-
-- **CURSOS → DEPARTAMENTOS** (1:n)
-- **CURSOS → CLASES** (1:n)
-- **DEPARTAMENTOS → CLAUSTRO** (1:n)  
-  - Rol especial: **DIRECTOR** (1:1)
-- **ESTUDIANTES → CLAUSTRO** (0:n)  
-  - Rol especial: **TUTOR** (1:1)
-- **CLASES → MATRÍCULAS** (1:n)
-- **ESTUDIANTES → MATRÍCULAS** (1:n)
+![Diagrama](/utils/ModeloRelacional.drawio.png)
 
 ---
 
