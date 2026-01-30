@@ -26,7 +26,13 @@ table 50102 Clases
                     Error('La sección no puede estar vacía.');
             end;
         }
-        field(3; "Día"; Enum SemanaEnum)
+        field(3; "Día"; Text[10])
+        {
+            ObsoleteState = Pending;
+            ObsoleteReason = 'Reemplazado por el campo Día Option de tipo Enum SemanaEnum';
+            Caption = 'Día de la semana';
+        }
+        field(33; "Día Option"; Enum SemanaEnum)
         {
             Caption = 'Día de la semana';
         }
@@ -64,6 +70,6 @@ table 50102 Clases
         {
             Clustered = true;
         }
-        key(dia; "Día") { }
+        key(dia; "Día Option") { }
     }
 }

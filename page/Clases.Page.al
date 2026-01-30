@@ -22,7 +22,7 @@ page 50106 "Lista de clases"
                     ApplicationArea = All;
                     ToolTip = 'Número de sección';
                 }
-                field("Día"; Rec."Día")
+                field("Día"; Rec."Día Option")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Día de la semana';

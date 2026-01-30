@@ -1,4 +1,4 @@
-codeunit 50102 "Cargar Datos EDUCA1"
+codeunit 50103 "Cargar Datos EDUCA1 Custom"
 {
     // Este codeunit se puede ejecutar desde la búsqueda (Alt+Q)
 
@@ -146,7 +146,7 @@ codeunit 50102 "Cargar Datos EDUCA1"
         Clase.Init();
         Clase."Código curso" := 'C10';
         Clase."Sección" := '01';
-        Clase."Día" := SemanaEnum::Lunes;
+        Clase."Día Option" := SemanaEnum::Lunes;
         Clase.Hora := 100000T;
         Clase.Edificio := 'CI';
         Clase.Despacho := 101;
@@ -158,7 +158,7 @@ codeunit 50102 "Cargar Datos EDUCA1"
         Clase.Init();
         Clase."Código curso" := 'C11';
         Clase."Sección" := '01';
-        Clase."Día" := SemanaEnum::Miércoles;
+        Clase."Día Option" := SemanaEnum::Miércoles;
         Clase.Hora := 090000T;
         Clase.Edificio := 'CI';
         Clase.Despacho := 102;
@@ -170,7 +170,7 @@ codeunit 50102 "Cargar Datos EDUCA1"
         Clase.Init();
         Clase."Código curso" := 'C20';
         Clase."Sección" := '02';
-        Clase."Día" := SemanaEnum::Jueves;
+        Clase."Día Option" := SemanaEnum::Jueves;
         Clase.Hora := 090000T;
         Clase.Edificio := 'HU';
         Clase.Despacho := 201;

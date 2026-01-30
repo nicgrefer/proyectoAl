@@ -60,7 +60,7 @@ table 50105 Claustro
         {
             Caption = 'Nº de clases';
             FieldClass = FlowField;
-            CalcFormula = count(Clases where("Código profesor" = field("Código profesor"), "Día" = field("Filtro día")));
+            CalcFormula = count(Clases where("Código profesor" = field("Código profesor"), "Día Option" = field("Filtro día")));
             Editable = false;
         }
         field(9; "Filtro día"; Enum SemanaEnum)

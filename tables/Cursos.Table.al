@@ -2,6 +2,7 @@ table 50100 Cursos
 {
     DataClassification = ToBeClassified;
     Caption = 'Cursos';
+    DataCaptionFields = "Código curso", "Nombre curso";
 
     fields
     {
