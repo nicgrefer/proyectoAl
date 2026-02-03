@@ -1,42 +1,45 @@
-page 50108 "Lista de personal"
+page 50118 "Ficha personal"
 {
-    PageType = List;
+    PageType = Card;
     ApplicationArea = All;
-    UsageCategory = Lists;
+    UsageCategory = None;
     SourceTable = Personal;
-    CardPageId = "Ficha personal";
-    Caption = 'Lista de personal';
+    Caption = 'Ficha personal';
 
     layout
     {
         area(Content)
         {
-            repeater(GroupName)
+            group(General)
             {
+                Caption = 'General';
                 field("Código personal"; Rec."Código personal")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Código del personal';
+                    ToolTip = 'Código del personal.';
+                    Importance = Promoted;
                 }
                 field("Nombre"; Rec.Nombre)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Nombre completo';
+                    ToolTip = 'Nombre completo.';
+                    Importance = Promoted;
                 }
                 field("Cargo"; Rec.Cargo)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Cargo o puesto';
+                    ToolTip = 'Cargo o puesto.';
                 }
                 field("Sueldo"; Rec.Sueldo)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Sueldo';
+                    ToolTip = 'Sueldo.';
                 }
                 field("Código profesor"; Rec."Código profesor")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Código del profesor (si es ayudante)';
+                    ToolTip = 'Código del profesor (si es ayudante).';
+                    LookupPageId = "Lista del claustro";
                 }
             }
         }

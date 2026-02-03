@@ -4,6 +4,7 @@ page 50105 "Lista del claustro"
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = Claustro;
+    CardPageId = "Ficha profesor";
     Caption = 'Lista del claustro';
 
     layout

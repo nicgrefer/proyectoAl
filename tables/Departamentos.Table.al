@@ -56,4 +56,11 @@ table 50101 Departamentos
         }
         key(despacho; Despacho) { }
     }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; "Código dept.", Edificio, Despacho)
+        {
+        }
+    }
 }

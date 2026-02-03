@@ -1,4 +1,4 @@
-codeunit 50101 "EDUCA Auto Data Install"
+codeunit 50141 "EDUCA Auto Data Install"
 {
     Subtype = Install;
 

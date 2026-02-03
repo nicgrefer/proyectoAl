@@ -80,4 +80,11 @@ table 50105 Claustro
         key(fechaContrato; "Fecha contrato") { }
         key(sueldo; Sueldo) { }
     }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; "Código profesor", Nombre)
+        {
+        }
+    }
 }

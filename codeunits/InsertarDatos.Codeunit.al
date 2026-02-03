@@ -1,4 +1,4 @@
-codeunit 50103 "Cargar Datos EDUCA1 Custom"
+codeunit 50140 "Cargar Datos EDUCA1 Custom"
 {
     // Este codeunit se puede ejecutar desde la búsqueda (Alt+Q)
 

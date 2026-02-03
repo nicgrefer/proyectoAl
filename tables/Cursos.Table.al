@@ -55,4 +55,11 @@ table 50100 Cursos
         key(nomCurs; "Nombre curso") { }
         key(descCurso; "Desc. curso") { }
     }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; "Código curso", "Nombre curso")
+        {
+        }
+    }
 }

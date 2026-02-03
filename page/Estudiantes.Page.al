@@ -4,6 +4,7 @@ page 50102 "Lista de estudiantes"
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = Estudiantes;
+    CardPageId = "Ficha estudiante";
     Caption = 'Lista de estudiantes';
 
     layout

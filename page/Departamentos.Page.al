@@ -4,6 +4,7 @@ page 50107 "Lista de departamentos"
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = Departamentos;
+    CardPageId = "Ficha departamento";
     Caption = 'Lista de departamentos';
 
     layout

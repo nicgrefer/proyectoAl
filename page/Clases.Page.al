@@ -4,6 +4,7 @@ page 50106 "Lista de clases"
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = Clases;
+    CardPageId = "Ficha clase";
     Caption = 'Lista de clases';
 
     layout

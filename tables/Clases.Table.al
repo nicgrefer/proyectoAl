@@ -62,6 +62,13 @@ table 50102 Clases
             Caption = 'Código profesor';
             TableRelation = Claustro."Código profesor";
         }
+        field(8; "Nº matrículas"; Integer)
+        {
+            Caption = 'Nº matrículas';
+            FieldClass = FlowField;
+            CalcFormula = count("Matrículas" where("Código curso" = field("Código curso"), "Sección" = field("Sección")));
+            Editable = false;
+        }
     }
 
     keys

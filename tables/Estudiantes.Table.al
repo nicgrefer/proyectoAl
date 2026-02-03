@@ -58,4 +58,11 @@ table 50103 Estudiantes
         key(direccion; Dirección) { }
         key(telefono; Teléfono) { }
     }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; "Código estudiante", Nombre, Sexo)
+        {
+        }
+    }
 }
