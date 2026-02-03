@@ -12,33 +12,25 @@ page 50103 "Lista Matriculas"
     {
         area(Content)
         {
-            group(General)
+            repeater(General)
             {
-                Caption = 'General';
                 field("Código curso"; Rec."Código curso")
                 {
                     ApplicationArea = All;
                     Caption = 'Código curso';
+                    ToolTip = 'Código del curso.';
                 }
                 field("Sección"; Rec."Sección")
                 {
                     ApplicationArea = All;
                     Caption = 'Nº de sección';
+                    ToolTip = 'Sección de la clase.';
                 }
                 field("Código estudiante"; Rec."Código estudiante")
                 {
                     ApplicationArea = All;
                     Caption = 'Código estudiante';
-                }
-                field("Fecha matricula"; Rec."Fecha matricula")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Fecha matricula';
-                }
-                field("Hora matricula"; Rec."Hora matricula")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Hora matricula';
+                    ToolTip = 'Código del estudiante.';
                 }
             }
         }
@@ -47,5 +39,4 @@ page 50103 "Lista Matriculas"
 
         }
     }
-
 }
