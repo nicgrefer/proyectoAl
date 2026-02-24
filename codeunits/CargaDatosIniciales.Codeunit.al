@@ -1,4 +1,4 @@
-codeunit 50140 "Cargar Datos EDUCA1 Custom"
+codeunit 50140 "Carga Datos Iniciales"
 {
     // Este codeunit se puede ejecutar desde la búsqueda (Alt+Q)
 
@@ -7,13 +7,7 @@ codeunit 50140 "Cargar Datos EDUCA1 Custom"
         if not Confirm('¿Desea cargar los datos iniciales del sistema EDUCA?', false) then
             exit;
 
-        InsertarDepartamentos();
-        InsertarClaustro();
-        InsertarCursos();
-        InsertarClases();
-        InsertarEstudiantes();
-        InsertarMatriculas();
-        InsertarPersonal();
+        CargarTodosLosDatosForzado();
 
         Message('Datos cargados correctamente.');
     end;
@@ -301,5 +295,32 @@ codeunit 50140 "Cargar Datos EDUCA1 Custom"
         PersonalRec.Cargo := 'Conserje';
         PersonalRec.Sueldo := 1050.00;
         PersonalRec.Insert(true);
+    end;
+}
+
+codeunit 50141 "Carga Datos Init Install"
+{
+    Subtype = Install;
+
+    trigger OnInstallAppPerCompany()
+    var
+        Loader: Codeunit "Carga Datos Iniciales";
+    begin
+        // Para desactivar la autocarga en instalación, comenta la siguiente línea:
+        Loader.CargarTodosLosDatosForzado();
+    end;
+}
+
+codeunit 50142 "Carga Datos Init Upgrade"
+{
+    Subtype = Upgrade;
+
+    trigger OnUpgradePerCompany()
+    var
+        Loader: Codeunit "Carga Datos Iniciales";
+    begin
+        // OJO: este proceso borra e inserta datos. Solo úsalo si realmente quieres “resetear” datos en una actualización.
+        // Para activarlo, descomenta la siguiente línea:
+        // Loader.CargarTodosLosDatosForzado();
     end;
 }
