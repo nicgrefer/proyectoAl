@@ -16,6 +16,15 @@ page 50115 "Estadísticas clase"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Número de matrículas de la clase.';
+
+                    trigger OnDrillDown()
+                    var
+                        Matricula: Record "Matrículas";
+                    begin
+                        Matricula.SetRange("Código curso", Rec."Código curso");
+                        Matricula.SetRange("Sección", Rec."Sección");
+                        Page.Run(Page::"Lista Matriculas", Matricula);
+                    end;
                 }
             }
         }

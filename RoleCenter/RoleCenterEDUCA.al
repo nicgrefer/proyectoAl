@@ -10,7 +10,11 @@ page 50101 "Role Center EDUCA"
         {
             group(Left)
             {
-                Caption = 'Navegación';
+                Caption = 'Información';
+                part(InfoCues; "EDUCA RC Cues")
+                {
+                    ApplicationArea = All;
+                }
                 part(EstudiantesPart; "Lista de estudiantes")
                 {
                     ApplicationArea = All;
@@ -56,6 +60,32 @@ page 50101 "Role Center EDUCA"
             group(Navegacion)
             {
                 Caption = 'Navegación';
+                group(Nuevo)
+                {
+                    Caption = 'Nuevo';
+
+                    action(NuevoEstudiante)
+                    {
+                        Caption = 'Nuevo estudiante';
+                        ApplicationArea = All;
+                        Image = New;
+                        Promoted = true;
+                        PromotedCategory = Process;
+                        RunObject = page "Ficha estudiante";
+                        RunPageMode = Create;
+                    }
+
+                    action(NuevaMatricula)
+                    {
+                        Caption = 'Nueva matrícula';
+                        ApplicationArea = All;
+                        Image = New;
+                        Promoted = true;
+                        PromotedCategory = Process;
+                        RunObject = page "Ficha Matriculas";
+                        RunPageMode = Create;
+                    }
+                }
                 action(OpenEstudiantes)
                 {
                     Caption = 'Abrir lista de estudiantes';

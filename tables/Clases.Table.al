@@ -79,4 +79,11 @@ table 50102 Clases
         }
         key(dia; "Día Option") { }
     }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; "Código curso", "Sección", "Día Option", Hora)
+        {
+        }
+    }
 }

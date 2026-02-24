@@ -102,7 +102,7 @@ page 50104 "Ficha Matriculas"
                     ApplicationArea = All;
                     Image = List;
                     RunObject = page "Lista Matriculas";
-                    RunPageLink = "Código curso" = field("Código curso"), "Sección" = field("Sección"), "Código estudiante" = field("Código estudiante");
+                    RunPageLink = "Código estudiante" = field("Código estudiante");
                 }
                 action(VerTutor)
                 {

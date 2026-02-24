@@ -16,13 +16,32 @@ page 50117 "Estadísticas profesor"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Número de ayudantes del profesor.';
-                    DrillDownPageId = "Lista de personal";
+
+                    trigger OnDrillDown()
+                    var
+                        PersonalRec: Record Personal;
+                    begin
+                        PersonalRec.SetRange("Código profesor", Rec."Código profesor");
+                        PersonalRec.SetRange(Cargo, 'Ayudante');
+                        Page.Run(Page::"Lista de personal", PersonalRec);
+                    end;
                 }
                 field("Nº clases"; Rec."Nº clases")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Número de clases que imparte.';
-                    DrillDownPageId = "Lista de clases";
+
+                    trigger OnDrillDown()
+                    var
+                        Clase: Record Clases;
+                        DiaFiltro: Text;
+                    begin
+                        Clase.SetRange("Código profesor", Rec."Código profesor");
+                        DiaFiltro := Rec.GetFilter("Filtro día");
+                        if DiaFiltro <> '' then
+                            Clase.SetFilter("Día Option", DiaFiltro);
+                        Page.Run(Page::"Lista de clases", Clase);
+                    end;
                 }
             }
         }
